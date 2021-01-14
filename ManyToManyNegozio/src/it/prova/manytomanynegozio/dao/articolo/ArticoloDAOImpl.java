@@ -3,6 +3,7 @@ package it.prova.manytomanynegozio.dao.articolo;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import it.prova.manytomanynegozio.model.Articolo;
 import it.prova.manytomanynegozio.model.Categoria;
@@ -54,15 +55,17 @@ public class ArticoloDAOImpl implements ArticoloDAO{
 	}
 
 	@Override
-	public List<Categoria> findAllByCategoria(Categoria categoriaInput) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Articolo> findAllByCategoria(Categoria categoriaInput) {
+		TypedQuery<Articolo> query = entityManager.createQuery("select a FROM Articolo a join a.categorie c where c = :categoria",Articolo.class);
+		query.setParameter("categoria", categoriaInput);
+		return query.getResultList();
 	}
 
 	@Override
-	public List<Ordine> findAllByOrdine(Ordine ordineInput) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Articolo> findAllByOrdine(Ordine ordineInput) {
+		TypedQuery<Articolo> query = entityManager.createQuery("select a FROM Articolo a join a.ordini o where o = :ordine",Articolo.class);
+		query.setParameter("ordine", ordineInput);
+		return query.getResultList();
 	}
 	
 	

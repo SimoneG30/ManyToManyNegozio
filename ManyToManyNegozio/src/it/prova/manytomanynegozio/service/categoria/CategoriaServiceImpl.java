@@ -92,21 +92,20 @@ public class CategoriaServiceImpl implements CategoriaService {
 	}
 
 	@Override
-	public void aggiungiArticolo(Categoria categoriaInstance, Articolo articoloInstance) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void nuovaCategoriaConArticolo(Categoria categoriaInstance, Articolo articoloInstance) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public List<Categoria> cercaCategoriaPerArticolo(Articolo articoloInput) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			categoriaDAO.setEntityManager(entityManager);
+			return categoriaDAO.findAllByArticolo(articoloInput);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			entityManager.close();
+		}
+
 	}
 
 }

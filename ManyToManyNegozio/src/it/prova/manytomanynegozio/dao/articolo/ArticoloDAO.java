@@ -9,8 +9,8 @@ import it.prova.manytomanynegozio.model.Ordine;
 
 public interface ArticoloDAO extends IBaseDAO<Articolo> {
 	
-	public List<Categoria> findAllByCategoria(Categoria categoriaInput);
+	public List<Articolo> findAllByCategoria(Categoria categoriaInput);
 	
-	public List<Ordine> findAllByOrdine(Ordine ordineInput);
+	public List<Articolo> findAllByOrdine(Ordine ordineInput);
 
 }

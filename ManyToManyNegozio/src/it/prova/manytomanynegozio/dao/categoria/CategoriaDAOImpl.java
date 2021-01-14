@@ -3,6 +3,9 @@ package it.prova.manytomanynegozio.dao.categoria;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import it.prova.manytomanynegozio.model.Articolo;
 import it.prova.manytomanynegozio.model.Categoria;
 
 public class CategoriaDAOImpl implements CategoriaDAO {
@@ -48,6 +51,10 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 		entityManager.remove(entityManager.merge(categoriaInput));
 	}
 
-
-
+	@Override
+	public List<Categoria> findAllByArticolo(Articolo articoloInput) {
+		TypedQuery<Categoria> query = entityManager.createQuery("select c FROM Categoria c join c.articoli a where a = :articolo",Categoria.class);
+		query.setParameter("articolo", articoloInput);
+		return query.getResultList();
+	}
 }

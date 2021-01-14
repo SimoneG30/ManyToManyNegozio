@@ -17,11 +17,7 @@ public interface CategoriaService {
 	public void inserisciNuovo(Categoria categoriaInstance) throws Exception;
 
 	public void rimuovi(Categoria categoriaInstance) throws Exception;
-
-	public void aggiungiArticolo(Categoria categoriaInstance, Articolo articoloInstance) throws Exception;
-	
-	public void nuovaCategoriaConArticolo(Categoria categoriaInstance, Articolo articoloInstance) throws Exception;
-	
+		
 	public List<Categoria> cercaCategoriaPerArticolo(Articolo articoloInput);
 
 

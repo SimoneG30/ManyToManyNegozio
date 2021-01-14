@@ -92,20 +92,57 @@ public class ArticoloServiceImpl implements ArticoloService {
 
 	@Override
 	public void aggiungiCategoria(Articolo articoloInstance, Categoria categoriaInstance) throws Exception {
-		// TODO Auto-generated method stub
-		
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			entityManager.getTransaction().begin();
+			articoloDAO.setEntityManager(entityManager);
+			articoloInstance = entityManager.merge(articoloInstance);
+			categoriaInstance = entityManager.merge(categoriaInstance);
+			articoloInstance.getCategorie().add(categoriaInstance);
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+			throw e;
+		}
+
 	}
 
 	@Override
 	public void nuovoArticoloConCategoria(Articolo articoloInstance, Categoria categoriaInstance) throws Exception {
-		// TODO Auto-generated method stub
-		
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			entityManager.getTransaction().begin();
+			articoloDAO.setEntityManager(entityManager);
+			articoloInstance = entityManager.merge(articoloInstance);
+			categoriaInstance = entityManager.merge(categoriaInstance);
+			articoloInstance.getCategorie().add(categoriaInstance);
+			entityManager.getTransaction().commit();
+		} catch (Exception e) {
+			entityManager.getTransaction().rollback();
+			e.printStackTrace();
+			throw e;
+		}
+
 	}
 
 	@Override
 	public List<Articolo> cercaArticoloPerCategoria(Categoria categoriaInput) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			articoloDAO.setEntityManager(entityManager);
+			return articoloDAO.findAllByCategoria(categoriaInput);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			entityManager.close();
+		}
+
 	}
 
 
