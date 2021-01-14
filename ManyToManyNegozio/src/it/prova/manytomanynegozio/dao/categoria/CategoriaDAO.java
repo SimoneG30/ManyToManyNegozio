@@ -1,5 +1,8 @@
 package it.prova.manytomanynegozio.dao.categoria;
 
-public interface CategoriaDAO {
+import it.prova.manytomanynegozio.dao.IBaseDAO;
+import it.prova.manytomanynegozio.model.Categoria;
+
+public interface CategoriaDAO extends IBaseDAO<Categoria> {
 
 }
