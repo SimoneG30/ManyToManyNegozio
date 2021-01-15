@@ -22,9 +22,11 @@ public interface ArticoloService {
 	
 	public void nuovoArticoloConCategoria(Articolo articoloInstance, Categoria categoriaInstance) throws Exception;
 	
-	public List<Articolo> cercaArticoloPerCategoria(Categoria categoriaInput);
+	public List<Articolo> cercaArticoloPerCategoria(Categoria categoriaInput) throws Exception;
 
-	public List<Articolo> cercaArticoliPerDescrizione(String descrizioneInput);
+	public List<Articolo> cercaArticoliPerDescrizione(String descrizioneInput) throws Exception;
+	
+	public Long sommaPrezziArticoliConCategoria(Categoria categoriaInput) throws Exception;
 
 	// per injection
 	public void setArticoloDAO(ArticoloDAO articoloDAO);

@@ -3,6 +3,7 @@ package it.prova.manytomanynegozio.service.ordine;
 import java.util.List;
 
 import it.prova.manytomanynegozio.dao.ordine.OrdineDAO;
+import it.prova.manytomanynegozio.model.Categoria;
 import it.prova.manytomanynegozio.model.Ordine;
 
 public interface OrdineService {
@@ -17,6 +18,7 @@ public interface OrdineService {
 
 	public void rimuovi(Ordine ordineInstance) throws Exception;
 	
+	public List<Ordine> findAllOrdiniByCategoria(Categoria categoriaInput) throws Exception;
 
 	// per injection
 	public void setOrdineDAO(OrdineDAO ordineDAO);

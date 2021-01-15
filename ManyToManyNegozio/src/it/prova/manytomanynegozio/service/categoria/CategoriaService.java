@@ -5,6 +5,7 @@ import java.util.List;
 import it.prova.manytomanynegozio.dao.categoria.CategoriaDAO;
 import it.prova.manytomanynegozio.model.Articolo;
 import it.prova.manytomanynegozio.model.Categoria;
+import it.prova.manytomanynegozio.model.Ordine;
 
 public interface CategoriaService {
 	
@@ -21,6 +22,8 @@ public interface CategoriaService {
 	public List<Categoria> cercaCategoriaPerArticolo(Articolo articoloInput);
 	
 	public List<Categoria> cercaCategoriePerDescrizione(String categoriaInput);
+
+	public List<Categoria> trovaTutteLeCategorieDaOrdine(Ordine ordineInput) throws Exception;
 
 
 	// per injection

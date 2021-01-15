@@ -27,7 +27,6 @@ public class Ordine {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ordine")
 	private Set<Articolo> articoli = new HashSet<>();
 	
-	
 	public Ordine() {
 
 	}

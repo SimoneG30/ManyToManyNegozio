@@ -7,6 +7,7 @@ import javax.persistence.TypedQuery;
 
 import it.prova.manytomanynegozio.model.Articolo;
 import it.prova.manytomanynegozio.model.Categoria;
+import it.prova.manytomanynegozio.model.Ordine;
 
 public class CategoriaDAOImpl implements CategoriaDAO {
 
@@ -62,6 +63,13 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 	public List<Categoria> findAllByDescrizione(String descrizioneInput) {
 		TypedQuery<Categoria> query = entityManager.createQuery("from Categoria c where c.descrizione = ?1", Categoria.class);
 		return query.setParameter(1, descrizioneInput).getResultList();
+	}
+
+	@Override
+	public List<Categoria> findAllByOrdine(Ordine ordineInput) {
+		TypedQuery<Categoria> query = entityManager.createQuery("select c FROM Categoria c left join fetch c.articoli a left join fetch a.ordine o where o = :ordine",Categoria.class);
+		query.setParameter("ordine", ordineInput);
+		return query.getResultList();
 	}
 	
 }

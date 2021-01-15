@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 
 import it.prova.manytomanynegozio.dao.EntityManagerUtil;
 import it.prova.manytomanynegozio.dao.ordine.OrdineDAO;
+import it.prova.manytomanynegozio.model.Categoria;
 import it.prova.manytomanynegozio.model.Ordine;
 
 public class OrdineServiceImpl implements OrdineService {
@@ -89,5 +90,20 @@ public class OrdineServiceImpl implements OrdineService {
 			throw e;
 		}
 	}
+
+	@Override
+	public List<Ordine> findAllOrdiniByCategoria(Categoria categoriaInput) throws Exception {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+		try {
+			ordineDAO.setEntityManager(entityManager);
+			return ordineDAO.findAllOrdiniByCategoria(categoriaInput);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			entityManager.close();
+		}
+	}
+
 	
 }

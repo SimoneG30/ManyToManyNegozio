@@ -19,23 +19,25 @@ public class NegozioTest {
 		OrdineService ordineServiceInstance = MyServiceFactory.getOrdineServiceInstance();
 
 		try {
-			
-			// ---------------------------------------------------------- ARTICOLO ----------------------------------------------------------
-			
+
+			// ---------------------------------------------------------- ARTICOLO
+			// ----------------------------------------------------------
+
 			// INSERIMENTO ARTICOLO
 //			System.out.println("\n INSERIMENTO ARTICOLO \n ");
 //			Articolo nuovoArticolo = new Articolo("Processore AMD Ryzen 5 5600X", 389);
 //			articoloServiceInstance.inserisciNuovo(nuovoArticolo);
 //			if(articoloServiceInstance.caricaSingoloElemento(nuovoArticolo.getId()) != null)
 //				System.out.println("Nuovo articolo inserito: "+nuovoArticolo);
-			
+
 			// AGGIUNGI CATEGORIA
 //			Categoria categoriaDaDb = categoriaServiceInstance.cercaCategoriePerDescrizione("Elettronica").get(0);
 //			Articolo articoloDaDb = articoloServiceInstance.cercaArticoliPerDescrizione("Processore AMD Ryzen 5 5600X").get(0);
 //			if (articoloDaDb != null) {
 //				articoloServiceInstance.aggiungiCategoria(articoloDaDb, categoriaDaDb);
 //			}
-			
+
+			// ARTICOLO CON CATEGORIA
 //			System.out.println("\n NUOVO ARTICOLO CON CATEGORIA \n ");
 //			Articolo articoloNuovo = new Articolo("Processore AMD Ryzen 7 5800X", 549);
 //			articoloServiceInstance.inserisciNuovo(articoloNuovo);
@@ -43,13 +45,13 @@ public class NegozioTest {
 //			if (articoloNuovo != null) {
 //				articoloServiceInstance.aggiungiCategoria(articoloNuovo, categoriaPresaDaDb);
 //			}
-			
+
 			// LISTA ARTICOLI
 //			System.out.println("\n LISTA ARTICOLI \n ");
 //			for (Articolo articoloItem : articoloServiceInstance.listAll()) {
 //				System.out.println(articoloItem);
 //			}
-			
+
 			// UPDATE ARTICOLO
 //			System.out.println("\n UPDATE ARTICOLO \n ");
 //			Articolo articoloDaModificare = articoloServiceInstance.caricaSingoloElemento(2L);
@@ -60,30 +62,30 @@ public class NegozioTest {
 //				articoloServiceInstance.aggiorna(articoloDaModificare);
 //				System.out.println("descrizione aggiornata dell'articolo: " + articoloDaModificare.getDescrizione());
 //			}
-			
+
 			// RIMOZIONE ARTICOLO
 //			System.out.println("\n RIMOZIONE ARTICOLO \n ");
-//			Articolo articoloPresoDaDb = articoloServiceInstance.caricaSingoloElemento(3L);
+//			Articolo articoloPresoDaDb = articoloServiceInstance.caricaSingoloElemento(2L);
 //			if (articoloPresoDaDb != null) {
 //				articoloServiceInstance.rimuovi(articoloPresoDaDb);
 //			}
-			
-			
-			// ---------------------------------------------------------- CATEGORIA ----------------------------------------------------------
-			
+
+			// ---------------------------------------------------------- CATEGORIA
+			// ----------------------------------------------------------
+
 			// INSERIMENTO CATEGORIA
 //			System.out.println("\n INSERIMENTO CATEGORIA \n ");
 //			Categoria nuovaCategoria = new Categoria("Elettronica");
 //			categoriaServiceInstance.inserisciNuovo(nuovaCategoria);
 //			if(categoriaServiceInstance.caricaSingoloElemento(nuovaCategoria.getId()) != null)
 //				System.out.println("Nuova categoria inserita: "+nuovaCategoria);
-			
+
 			// LISTA CATEGORIE
 //			System.out.println("\n LISTA CATEGORIE \n ");
 //			for (Categoria categoriaItem : categoriaServiceInstance.listAll()) {
 //				System.out.println(categoriaItem);
 //			}
-			
+
 			// UPDATE CATEGORIA
 //			System.out.println("\n UPDATE CATEGORIA \n ");
 //			Categoria categoriaDaModificare = categoriaServiceInstance.caricaSingoloElemento(2L);
@@ -94,7 +96,7 @@ public class NegozioTest {
 //				categoriaServiceInstance.aggiorna(categoriaDaModificare);
 //				System.out.println("descrizione aggiornata della categoria: " + categoriaDaModificare.getDescrizione());
 //			}
-			
+
 			// RIMOZIONE CATEGORIA
 //			System.out.println("\n RIMOZIONE CATEGORIA \n ");
 //			Categoria categoriaPresaDaDb = categoriaServiceInstance.caricaSingoloElemento(2L);
@@ -102,23 +104,25 @@ public class NegozioTest {
 //				categoriaServiceInstance.rimuovi(categoriaPresaDaDb);
 //			}
 
-			
-			
-			// ---------------------------------------------------------- ORDINE ----------------------------------------------------------
-			
+			// ---------------------------------------------------------- ORDINE
+			// ----------------------------------------------------------
+
 			// INSERIMENTO ORDINE
 //			System.out.println("\n INSERIMENTO ORDINE \n ");
-//			Ordine nuovoOrdine = new Ordine("Via Roma 1", "Mario Rossi");
+//			Ordine nuovoOrdine = new Ordine("Mario Rossi", "Via Roma 1");
 //			ordineServiceInstance.inserisciNuovo(nuovoOrdine);
 //			if(ordineServiceInstance.caricaSingoloElemento(nuovoOrdine.getId()) != null)
 //				System.out.println("Nuovo ordine inserito: "+nuovoOrdine);
-			
+
+			// AGGIUNGI AD ARTICOLO
+//			System.out.println("\n AGGIUNGI AD ARTICOLO \n ");
+
 			// LISTA ORDINI
 //			System.out.println("\n LISTA ORDINI \n ");
 //			for (Ordine ordineItem : ordineServiceInstance.listAll()) {
 //				System.out.println(ordineItem);
 //			}
-			
+
 			// RIMOZIONE ORDINE
 //			System.out.println("\n RIMOZIONE ORDINE \n ");
 //			Ordine ordinePresoDaDb = ordineServiceInstance.caricaSingoloElemento(2L);
@@ -126,6 +130,25 @@ public class NegozioTest {
 //				ordineServiceInstance.rimuovi(ordinePresoDaDb);
 //			}
 
+			// ORDINI EFFETTUATI DATA UNA CATEGORIA
+			System.out.println("\n ORDINI EFFETTUATI DATA UNA CATEGORIA \n ");
+			List<Ordine> listaOrdini = ordineServiceInstance.findAllOrdiniByCategoria(categoriaServiceInstance.caricaSingoloElemento(1L));
+			for (Ordine ordineItem : listaOrdini) {
+				System.out.println(ordineItem);
+			}
+			
+			// CATEGORIE DEGLI ARTICOLI DI UN DATO ORDINE
+			System.out.println("\n CATEGORIE DEGLI ARTICOLI DI UN DATO ORDINE \n ");
+			List<Categoria> listaCategorie = categoriaServiceInstance
+					.trovaTutteLeCategorieDaOrdine(ordineServiceInstance.caricaSingoloElemento(1L));
+			for (Categoria categoriaItem : listaCategorie) {
+				System.out.println(categoriaItem);
+			}
+			
+			// SOMMA PREZZI DEGLI ARTICOLI DI UNA DATA CATEGORIA
+			System.out.println("\n SOMMA PREZZI DEGLI ARTICOLI DI UNA DATA CATEGORIA \n ");
+			Long somma = articoloServiceInstance.sommaPrezziArticoliConCategoria(categoriaServiceInstance.caricaSingoloElemento(1L));
+			System.out.println("Somma prezzi articoli: " + somma);
 
 		} catch (Exception e) {
 			e.printStackTrace();

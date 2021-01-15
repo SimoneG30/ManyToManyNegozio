@@ -14,5 +14,6 @@ public interface ArticoloDAO extends IBaseDAO<Articolo> {
 	public List<Articolo> findAllByOrdine(Ordine ordineInput);
 	
 	public List<Articolo> findAllByDescrizione(String descrizioneInput);
-
+	
+	public Long sumAllByCategoria(Categoria categoriaInput);
 }

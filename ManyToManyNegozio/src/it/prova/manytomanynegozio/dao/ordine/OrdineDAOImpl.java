@@ -3,7 +3,10 @@ package it.prova.manytomanynegozio.dao.ordine;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
+import it.prova.manytomanynegozio.model.Articolo;
+import it.prova.manytomanynegozio.model.Categoria;
 import it.prova.manytomanynegozio.model.Ordine;
 
 public class OrdineDAOImpl implements OrdineDAO {
@@ -47,6 +50,13 @@ public class OrdineDAOImpl implements OrdineDAO {
 			throw new Exception("Problema valore in input");
 		}
 		entityManager.remove(entityManager.merge(ordineInput));
+	}
+
+	@Override
+	public List<Ordine> findAllOrdiniByCategoria(Categoria categoriaInput) {
+		TypedQuery<Ordine> query = entityManager.createQuery("select o FROM Ordine o left join fetch o.articoli a left join fetch a.categorie c where c = :categoria",Ordine.class);
+		query.setParameter("categoria", categoriaInput);
+		return query.getResultList();
 	}
 
 }
