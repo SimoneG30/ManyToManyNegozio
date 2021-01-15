@@ -51,7 +51,15 @@ public class NegozioTest {
 //			}
 			
 			// UPDATE ARTICOLO
-			
+//			System.out.println("\n UPDATE ARTICOLO \n ");
+//			Articolo articoloDaModificare = articoloServiceInstance.caricaSingoloElemento(2L);
+//			if (articoloDaModificare != null) {
+//				System.out.println("descrizione attuale dell'articolo: " + articoloDaModificare.getDescrizione());
+//				String nuovaDescrizione = "Processore AMD Ryzen 5 5600X (6C/12T, 35MB di cache, fino a 4,6 GHz Max Boost)";
+//				articoloDaModificare.setDescrizione(nuovaDescrizione);
+//				articoloServiceInstance.aggiorna(articoloDaModificare);
+//				System.out.println("descrizione aggiornata dell'articolo: " + articoloDaModificare.getDescrizione());
+//			}
 			
 			// RIMOZIONE ARTICOLO
 //			System.out.println("\n RIMOZIONE ARTICOLO \n ");
@@ -74,6 +82,17 @@ public class NegozioTest {
 //			System.out.println("\n LISTA CATEGORIE \n ");
 //			for (Categoria categoriaItem : categoriaServiceInstance.listAll()) {
 //				System.out.println(categoriaItem);
+//			}
+			
+			// UPDATE CATEGORIA
+//			System.out.println("\n UPDATE CATEGORIA \n ");
+//			Categoria categoriaDaModificare = categoriaServiceInstance.caricaSingoloElemento(2L);
+//			if (categoriaDaModificare != null) {
+//				System.out.println("descrizione attuale della categoria: " + categoriaDaModificare.getDescrizione());
+//				String nuovaDescrizione = "Informatica";
+//				categoriaDaModificare.setDescrizione(nuovaDescrizione);
+//				categoriaServiceInstance.aggiorna(categoriaDaModificare);
+//				System.out.println("descrizione aggiornata della categoria: " + categoriaDaModificare.getDescrizione());
 //			}
 			
 			// RIMOZIONE CATEGORIA
