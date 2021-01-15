@@ -84,4 +84,9 @@ public class Articolo {
 		this.categorie = categorie;
 	}
 	
+	@Override
+	public String toString() {
+		return "Articolo [id=" + id + ", descrizione=" + descrizione + ", prezzosingolo=" + prezzoSingolo + "]";
+	}
+	
 }

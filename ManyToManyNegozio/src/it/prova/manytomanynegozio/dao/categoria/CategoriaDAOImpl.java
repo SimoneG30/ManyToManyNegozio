@@ -57,4 +57,11 @@ public class CategoriaDAOImpl implements CategoriaDAO {
 		query.setParameter("articolo", articoloInput);
 		return query.getResultList();
 	}
+
+	@Override
+	public List<Categoria> findAllByDescrizione(String descrizioneInput) {
+		TypedQuery<Categoria> query = entityManager.createQuery("from Categoria c where c.descrizione = ?1", Categoria.class);
+		return query.setParameter(1, descrizioneInput).getResultList();
+	}
+	
 }

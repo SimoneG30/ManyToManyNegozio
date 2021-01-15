@@ -24,6 +24,7 @@ public interface ArticoloService {
 	
 	public List<Articolo> cercaArticoloPerCategoria(Categoria categoriaInput);
 
+	public List<Articolo> cercaArticoliPerDescrizione(String descrizioneInput);
 
 	// per injection
 	public void setArticoloDAO(ArticoloDAO articoloDAO);

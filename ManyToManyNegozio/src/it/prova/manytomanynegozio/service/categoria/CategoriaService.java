@@ -19,6 +19,8 @@ public interface CategoriaService {
 	public void rimuovi(Categoria categoriaInstance) throws Exception;
 		
 	public List<Categoria> cercaCategoriaPerArticolo(Articolo articoloInput);
+	
+	public List<Categoria> cercaCategoriePerDescrizione(String categoriaInput);
 
 
 	// per injection

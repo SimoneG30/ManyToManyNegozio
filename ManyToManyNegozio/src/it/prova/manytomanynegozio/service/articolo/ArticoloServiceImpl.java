@@ -3,6 +3,8 @@ package it.prova.manytomanynegozio.service.articolo;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
 import it.prova.manytomanynegozio.dao.EntityManagerUtil;
 import it.prova.manytomanynegozio.dao.articolo.ArticoloDAO;
 import it.prova.manytomanynegozio.model.Articolo;
@@ -143,6 +145,20 @@ public class ArticoloServiceImpl implements ArticoloService {
 			entityManager.close();
 		}
 
+	}
+
+	@Override
+	public List<Articolo> cercaArticoliPerDescrizione(String descrizioneInput) {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+		try {
+			articoloDAO.setEntityManager(entityManager);
+			return articoloDAO.findAllByDescrizione(descrizioneInput);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			entityManager.close();
+		}
 	}
 
 

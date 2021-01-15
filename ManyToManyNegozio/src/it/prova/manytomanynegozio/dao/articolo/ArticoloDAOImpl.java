@@ -67,6 +67,13 @@ public class ArticoloDAOImpl implements ArticoloDAO{
 		query.setParameter("ordine", ordineInput);
 		return query.getResultList();
 	}
+
+
+	@Override
+	public List<Articolo> findAllByDescrizione(String descrizioneInput) {
+		TypedQuery<Articolo> query = entityManager.createQuery("from Articolo a where a.descrizione = ?1", Articolo.class);
+		return query.setParameter(1, descrizioneInput).getResultList();
+	}
 	
 	
 	

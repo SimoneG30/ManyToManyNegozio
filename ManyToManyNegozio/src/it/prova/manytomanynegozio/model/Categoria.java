@@ -22,9 +22,8 @@ public class Categoria {
 
 	}
 
-	public Categoria(Long id, String descrizione) {
+	public Categoria(String descrizione) {
 		super();
-		this.id = id;
 		this.descrizione = descrizione;
 	}
 
@@ -45,7 +44,10 @@ public class Categoria {
 	}
 	
 	
-	
+	@Override
+	public String toString() {
+		return "Categoria [id=" + id + ", descrizione=" + descrizione + "]";
+	}
 	
 	
 	

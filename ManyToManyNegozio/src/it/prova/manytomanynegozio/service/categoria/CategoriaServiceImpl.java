@@ -108,4 +108,18 @@ public class CategoriaServiceImpl implements CategoriaService {
 
 	}
 
+	@Override
+	public List<Categoria> cercaCategoriePerDescrizione(String categoriaInput) {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+		try {
+			categoriaDAO.setEntityManager(entityManager);
+			return categoriaDAO.findAllByDescrizione(categoriaInput);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			entityManager.close();
+		}
+	}
+
 }

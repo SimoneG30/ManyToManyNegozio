@@ -79,7 +79,10 @@ public class Ordine {
 		this.articoli = articoli;
 	}
 
-		
+	@Override
+	public String toString() {
+		return "Utente [id=" + id + ", indirizzospedizione=" + indirizzoSpedizione + ", nomedestinatario=" + nomeDestinatario + "]";
+	}
 	
 	
 	
