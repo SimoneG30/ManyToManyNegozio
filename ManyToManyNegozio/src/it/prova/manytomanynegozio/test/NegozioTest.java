@@ -24,15 +24,15 @@ public class NegozioTest {
 			// ----------------------------------------------------------
 
 			// INSERIMENTO ARTICOLO
-			System.out.println("\n INSERIMENTO ARTICOLO \n ");
-			Articolo nuovoArticolo = new Articolo("Processore AMD Ryzen 5 5600X", 389);
-			articoloServiceInstance.inserisciNuovo(nuovoArticolo);
-			if(articoloServiceInstance.caricaSingoloElemento(nuovoArticolo.getId()) != null)
-				System.out.println("Nuovo articolo inserito: "+nuovoArticolo);
+//			System.out.println("\n INSERIMENTO ARTICOLO \n ");
+//			Articolo nuovoArticolo = new Articolo("Processore AMD Ryzen 5 5600X", 389);
+//			articoloServiceInstance.inserisciNuovo(nuovoArticolo);
+//			if(articoloServiceInstance.caricaSingoloElemento(nuovoArticolo.getId()) != null)
+//				System.out.println("Nuovo articolo inserito: "+nuovoArticolo);
 
 			// AGGIUNGI CATEGORIA
-//			Categoria categoriaDaDb = categoriaServiceInstance.cercaCategoriePerDescrizione("Elettronica").get(0);
-//			Articolo articoloDaDb = articoloServiceInstance.cercaArticoliPerDescrizione("Processore AMD Ryzen 5 5600X").get(0);
+//			Categoria categoriaDaDb = categoriaServiceInstance.caricaSingoloElemento(1L);;
+//			Articolo articoloDaDb = articoloServiceInstance.caricaSingoloElemento(1L);
 //			if (articoloDaDb != null) {
 //				articoloServiceInstance.aggiungiCategoria(articoloDaDb, categoriaDaDb);
 //			}
@@ -146,9 +146,9 @@ public class NegozioTest {
 //			}
 			
 			// SOMMA PREZZI DEGLI ARTICOLI DI UNA DATA CATEGORIA
-//			System.out.println("\n SOMMA PREZZI DEGLI ARTICOLI DI UNA DATA CATEGORIA \n ");
-//			Long somma = articoloServiceInstance.sommaPrezziArticoliConCategoria(categoriaServiceInstance.caricaSingoloElemento(1L));
-//			System.out.println("Somma prezzi articoli: " + somma);
+			System.out.println("\n SOMMA PREZZI DEGLI ARTICOLI DI UNA DATA CATEGORIA \n ");
+			Integer somma = articoloServiceInstance.sommaPrezziArticoliConCategoria(categoriaServiceInstance.caricaSingoloElemento(1L)).intValue();
+			System.out.println("Somma prezzi articoli: " + somma);
 
 		} catch (Exception e) {
 			e.printStackTrace();
