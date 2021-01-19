@@ -24,11 +24,11 @@ public class NegozioTest {
 			// ----------------------------------------------------------
 
 			// INSERIMENTO ARTICOLO
-//			System.out.println("\n INSERIMENTO ARTICOLO \n ");
-//			Articolo nuovoArticolo = new Articolo("Processore AMD Ryzen 5 5600X", 389);
-//			articoloServiceInstance.inserisciNuovo(nuovoArticolo);
-//			if(articoloServiceInstance.caricaSingoloElemento(nuovoArticolo.getId()) != null)
-//				System.out.println("Nuovo articolo inserito: "+nuovoArticolo);
+			System.out.println("\n INSERIMENTO ARTICOLO \n ");
+			Articolo nuovoArticolo = new Articolo("Processore AMD Ryzen 5 5600X", 389);
+			articoloServiceInstance.inserisciNuovo(nuovoArticolo);
+			if(articoloServiceInstance.caricaSingoloElemento(nuovoArticolo.getId()) != null)
+				System.out.println("Nuovo articolo inserito: "+nuovoArticolo);
 
 			// AGGIUNGI CATEGORIA
 //			Categoria categoriaDaDb = categoriaServiceInstance.cercaCategoriePerDescrizione("Elettronica").get(0);
@@ -131,24 +131,24 @@ public class NegozioTest {
 //			}
 
 			// ORDINI EFFETTUATI DATA UNA CATEGORIA
-			System.out.println("\n ORDINI EFFETTUATI DATA UNA CATEGORIA \n ");
-			List<Ordine> listaOrdini = ordineServiceInstance.findAllOrdiniByCategoria(categoriaServiceInstance.caricaSingoloElemento(1L));
-			for (Ordine ordineItem : listaOrdini) {
-				System.out.println(ordineItem);
-			}
+//			System.out.println("\n ORDINI EFFETTUATI DATA UNA CATEGORIA \n ");
+//			List<Ordine> listaOrdini = ordineServiceInstance.findAllOrdiniByCategoria(categoriaServiceInstance.caricaSingoloElemento(1L));
+//			for (Ordine ordineItem : listaOrdini) {
+//				System.out.println(ordineItem);
+//			}
 			
 			// CATEGORIE DEGLI ARTICOLI DI UN DATO ORDINE
-			System.out.println("\n CATEGORIE DEGLI ARTICOLI DI UN DATO ORDINE \n ");
-			List<Categoria> listaCategorie = categoriaServiceInstance
-					.trovaTutteLeCategorieDaOrdine(ordineServiceInstance.caricaSingoloElemento(1L));
-			for (Categoria categoriaItem : listaCategorie) {
-				System.out.println(categoriaItem);
-			}
+//			System.out.println("\n CATEGORIE DEGLI ARTICOLI DI UN DATO ORDINE \n ");
+//			List<Categoria> listaCategorie = categoriaServiceInstance
+//					.trovaTutteLeCategorieDaOrdine(ordineServiceInstance.caricaSingoloElemento(1L));
+//			for (Categoria categoriaItem : listaCategorie) {
+//				System.out.println(categoriaItem);
+//			}
 			
 			// SOMMA PREZZI DEGLI ARTICOLI DI UNA DATA CATEGORIA
-			System.out.println("\n SOMMA PREZZI DEGLI ARTICOLI DI UNA DATA CATEGORIA \n ");
-			Long somma = articoloServiceInstance.sommaPrezziArticoliConCategoria(categoriaServiceInstance.caricaSingoloElemento(1L));
-			System.out.println("Somma prezzi articoli: " + somma);
+//			System.out.println("\n SOMMA PREZZI DEGLI ARTICOLI DI UNA DATA CATEGORIA \n ");
+//			Long somma = articoloServiceInstance.sommaPrezziArticoliConCategoria(categoriaServiceInstance.caricaSingoloElemento(1L));
+//			System.out.println("Somma prezzi articoli: " + somma);
 
 		} catch (Exception e) {
 			e.printStackTrace();
