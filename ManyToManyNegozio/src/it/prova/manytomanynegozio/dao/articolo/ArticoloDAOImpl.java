@@ -18,7 +18,6 @@ public class ArticoloDAOImpl implements ArticoloDAO{
 		this.entityManager = entityManager;
 	}
 	
-	
 	@Override
 	public List<Articolo> list() throws Exception {
 		return entityManager.createQuery("from Articolo", Articolo.class).getResultList();

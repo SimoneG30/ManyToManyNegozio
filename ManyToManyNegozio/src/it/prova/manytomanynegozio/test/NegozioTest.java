@@ -153,8 +153,7 @@ public class NegozioTest {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			// questa è necessaria per chiudere tutte le connessioni quindi rilasciare il
-			// main
+
 			EntityManagerUtil.shutdown();
 		}
 
