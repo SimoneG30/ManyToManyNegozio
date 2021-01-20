@@ -31,8 +31,8 @@ public class NegozioTest {
 //				System.out.println("Nuovo articolo inserito: "+nuovoArticolo);
 
 			// AGGIUNGI CATEGORIA
-//			Categoria categoriaDaDb = categoriaServiceInstance.cercaCategoriePerDescrizione("Elettronica").get(0);
-//			Articolo articoloDaDb = articoloServiceInstance.cercaArticoliPerDescrizione("Processore AMD Ryzen 5 5600X").get(0);
+//			Categoria categoriaDaDb = categoriaServiceInstance.caricaSingoloElemento(1L);;
+//			Articolo articoloDaDb = articoloServiceInstance.caricaSingoloElemento(1L);
 //			if (articoloDaDb != null) {
 //				articoloServiceInstance.aggiungiCategoria(articoloDaDb, categoriaDaDb);
 //			}
@@ -131,30 +131,29 @@ public class NegozioTest {
 //			}
 
 			// ORDINI EFFETTUATI DATA UNA CATEGORIA
-			System.out.println("\n ORDINI EFFETTUATI DATA UNA CATEGORIA \n ");
-			List<Ordine> listaOrdini = ordineServiceInstance.findAllOrdiniByCategoria(categoriaServiceInstance.caricaSingoloElemento(1L));
-			for (Ordine ordineItem : listaOrdini) {
-				System.out.println(ordineItem);
-			}
+//			System.out.println("\n ORDINI EFFETTUATI DATA UNA CATEGORIA \n ");
+//			List<Ordine> listaOrdini = ordineServiceInstance.findAllOrdiniByCategoria(categoriaServiceInstance.caricaSingoloElemento(1L));
+//			for (Ordine ordineItem : listaOrdini) {
+//				System.out.println(ordineItem);
+//			}
 			
 			// CATEGORIE DEGLI ARTICOLI DI UN DATO ORDINE
-			System.out.println("\n CATEGORIE DEGLI ARTICOLI DI UN DATO ORDINE \n ");
-			List<Categoria> listaCategorie = categoriaServiceInstance
-					.trovaTutteLeCategorieDaOrdine(ordineServiceInstance.caricaSingoloElemento(1L));
-			for (Categoria categoriaItem : listaCategorie) {
-				System.out.println(categoriaItem);
-			}
+//			System.out.println("\n CATEGORIE DEGLI ARTICOLI DI UN DATO ORDINE \n ");
+//			List<Categoria> listaCategorie = categoriaServiceInstance
+//					.trovaTutteLeCategorieDaOrdine(ordineServiceInstance.caricaSingoloElemento(1L));
+//			for (Categoria categoriaItem : listaCategorie) {
+//				System.out.println(categoriaItem);
+//			}
 			
 			// SOMMA PREZZI DEGLI ARTICOLI DI UNA DATA CATEGORIA
 			System.out.println("\n SOMMA PREZZI DEGLI ARTICOLI DI UNA DATA CATEGORIA \n ");
-			Long somma = articoloServiceInstance.sommaPrezziArticoliConCategoria(categoriaServiceInstance.caricaSingoloElemento(1L));
+			Integer somma = articoloServiceInstance.sommaPrezziArticoliConCategoria(categoriaServiceInstance.caricaSingoloElemento(1L)).intValue();
 			System.out.println("Somma prezzi articoli: " + somma);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			// questa è necessaria per chiudere tutte le connessioni quindi rilasciare il
-			// main
+
 			EntityManagerUtil.shutdown();
 		}
 
